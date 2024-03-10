@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(49, 46, 101, 1) 53%,
+    rgba(27, 178, 209, 1) 100%
+  );
+  min-height: 100vh;
+}
+
+.users {
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.users p {
+  font-size: 15px;
+  margin: 20px 0;
+}
+.users h5 {
+  /* font-size: 20px; */
+  margin-bottom: 10px;
+}
