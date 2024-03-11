@@ -1,5 +1,6 @@
 const users = document.querySelector(".users");
 const price = document.querySelector(".price");
+const category = document.querySelector(".category");
 
 let all = null;
 function getProduct() {
@@ -43,5 +44,22 @@ price.addEventListener("change", (e) => {
       return b.price - a.price;
     });
     product(all);
+  }
+});
+
+category.addEventListener("change", (e) => {
+  let tar = e.target.value;
+  if (tar === "men") {
+    let res = all.filter((el) => el.category === "men's clothing");
+    product(res);
+  } else if (tar === "women") {
+    let res = all.filter((el) => el.category === "women's clothing");
+    product(res);
+  } else if (tar === "jewelery") {
+    let res = all.filter((el) => el.category === "jewelery");
+    product(res);
+  } else if (tar === "electronics") {
+    let res = all.filter((el) => el.category === "electronics");
+    product(res);
   }
 });
