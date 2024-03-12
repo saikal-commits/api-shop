@@ -1,8 +1,11 @@
 const users = document.querySelector(".users");
 const price = document.querySelector(".price");
+const btnMore = document.querySelector(".btnMore");
 const category = document.querySelector(".category");
 
 let all = null;
+let buttonMore = false;
+
 function getProduct() {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
@@ -16,8 +19,9 @@ getProduct();
 
 function product(main) {
   users.innerHTML = "";
-  main.map((el, idx) => {
-    users.innerHTML += `
+  buttonMore
+    ? main.map((el, idx) => {
+        users.innerHTML += `
           <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="${el.image}" alt="Card image cap">
       <div class="card-body">
@@ -28,8 +32,26 @@ function product(main) {
       </div>
       </div>        
           `;
-  });
+      })
+    : main.slice(0, 5).map((el, idx) => {
+        users.innerHTML += `
+          <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="${el.image}" alt="Card image cap">
+      <div class="card-body">
+      <h5 class="card-title">${el.title}</h5>
+      <p class="card-text">${el.description}</p>
+      <h5 class="card-title">${el.category}</h5>
+      <a href="#" class="btn btn-primary">${el.price}$</a>
+      </div>
+      </div>        
+          `;
+      });
 }
+
+btnMore.addEventListener("click", () => {
+  buttonMore = !buttonMore;
+  product(all);
+});
 
 price.addEventListener("change", (e) => {
   let tar = e.target.value;

@@ -37,3 +37,11 @@ body {
   /* font-size: 20px; */
   margin-bottom: 10px;
 }
+
+.price {
+  margin-left: 350px;
+}
+.btnMore {
+  margin-left: 550px;
+  margin-top: 20px;
+}
